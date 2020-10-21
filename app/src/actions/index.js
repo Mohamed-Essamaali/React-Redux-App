@@ -10,11 +10,16 @@ export const fetchData = (dispatch)=>{
     axios
     .get('https://cat-fact.herokuapp.com/facts/')
     .then(res=>{
-        dispatch({type:FETCHING_SUCCESS,payload: res.data})
+        dispatch({
+            type:FETCHING_SUCCESS,
+            payload: res.data})
             console.log(res.data)
     })
     .catch(err=>{
-        dispatch({type:FETCHING_FAILURE,payload:err.response.message})
+        dispatch({
+            type:FETCHING_FAILURE,
+            payload:err.response.message})
+            console.log(err)
     })
     
 }
